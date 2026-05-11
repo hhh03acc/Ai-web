@@ -571,3 +571,6 @@ for (let r = 0; r < 25; r++) {
         stability_index: 0.999
     });
 }
+window.AI_PARSER = {
+    execute: (input) => parseUserPrompt(input)
+};
