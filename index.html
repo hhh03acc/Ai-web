@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Web Architect | No-API Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <h2>AI Architect</h2>
+            <p>Describe your component below:</p>
+            <textarea id="userPrompt" placeholder="e.g., 'Create a blue login form' or 'Modern profile card'"></textarea>
+            <button id="generateBtn">Generate Component</button>
+            <div class="hint">No API Key Required</div>
+        </aside>
+
+        <main class="preview-area">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="showTab('preview')">Live Preview</button>
+                <button class="tab-btn" onclick="showTab('code')">Get Code</button>
+            </div>
+            
+            <div id="previewContainer" class="tab-content active">
+                <div id="renderSurface"></div>
+            </div>
+
+            <div id="codeContainer" class="tab-content">
+                <pre><code id="codeOutput"></code></pre>
+            </div>
+        </main>
+    </div>
+    <script src="engine.js"></script>
+</body>
+</html>
