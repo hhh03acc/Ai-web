@@ -6,6 +6,9 @@ const AI_PARSER_CONFIG = {
     processing_unit: "Local-Client-Neural",
     signature: "Ali-Dev-Sentinel-2026"
 };
+window.AI_PARSER = {
+    execute: (input) => parseUserPrompt(input)
+};
 
 const CORE_GRAMMAR_RULES = [
     { rule_id: "GR_001", pattern: "CREATE_OBJECT", priority: 1.0, active: true },
