@@ -667,5 +667,69 @@ for (let q = 0; q < 30; q++) {
         console.log("%c[InstaWeb Engine] System Ready. Total Lines: 1200+", "color: #10b981; font-weight: bold;");
     }
 })();
+// engine.js
+
+document.getElementById('generate-btn').addEventListener('click', function() {
+    const prompt = document.getElementById('user-prompt').value;
+    if (!prompt) return alert("من فضلك اكتب وصفاً!");
+
+    // 1. استخدام المحلل (Parser) لفهم النص
+    const intent = InstaWebParser.parse(prompt);
+
+    // 2. توليد الكود بناءً على القاموس
+    const htmlCode = InstaWebParser.render(intent);
+
+    // 3. عرض النتيجة في منطقة المعاينة
+    document.getElementById('preview-area').innerHTML = htmlCode;
+});
+
+const InstaWebParser = {
+    parse: function(text) {
+        const words = text.toLowerCase();
+        let result = {
+            component: "section", 
+            theme: "blue_base",
+            content: text.match(/"([^"]+)"/)?.[1] || "عنصر جديد"
+        };
+
+        // مطابقة الكلمات من القاموس الضخم الذي صنعته يا علي
+        const lexicon = window.AI_DICT.getLexicon();
+        
+        for (let key in lexicon.synonyms) {
+            lexicon.synonyms[key].forEach(synonym => {
+                if (words.includes(synonym)) {
+                    if (["red", "blue", "green", "purple", "orange"].includes(key)) {
+                        result.theme = `${key}_base`;
+                    } else {
+                        result.component = key;
+                    }
+                }
+            });
+        }
+        return result;
+    },
+
+    render: function(intent) {
+        // سحب الألوان من القاموس
+        const theme = window.AI_DICT.getTheme(intent.theme);
+        
+        const style = `
+            background-color: ${theme.color};
+            border: 2px solid ${theme.border};
+            color: ${theme.text};
+            padding: 20px;
+            border-radius: 12px;
+            font-weight: bold;
+            text-align: center;
+            transition: 0.3s;
+        `;
+
+        if (intent.component === "button") {
+            return `<button style="${style} cursor:pointer; width:auto;">${intent.content}</button>`;
+        }
+        
+        return `<div style="${style}">${intent.content}</div>`;
+    }
+};
 
 // End of Engine.js - Ali Dev Pro Build
