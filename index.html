@@ -3,34 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Web Architect | No-API Builder</title>
+    <title>InstaWeb AI | Semantic Component Architect</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="app-container">
         <aside class="sidebar">
-            <h2>AI Architect</h2>
-            <p>Describe your component below:</p>
-            <textarea id="userPrompt" placeholder="e.g., 'Create a blue login form' or 'Modern profile card'"></textarea>
-            <button id="generateBtn">Generate Component</button>
-            <div class="hint">No API Key Required</div>
+            <div class="logo-area">
+                <h2>InstaWeb <span>AI</span></h2>
+                <small>v1.0.5 Powered by Semantic Logic</small>
+            </div>
+            
+            <div class="input-section">
+                <label for="userPrompt">Design Prompt</label>
+                <textarea id="userPrompt" placeholder="Try: 'dark login form' or 'blue button'"></textarea>
+                <button id="generateBtn">Construct Component</button>
+            </div>
+
+            <div class="engine-info">
+                <p>Engine: <strong>Local LLM-Emulator</strong></p>
+                <p>Status: <span style="color: #3fb950;">● Operational</span></p>
+            </div>
+            
+            <div class="hint">No API Key Required - Browser Side Processing</div>
         </aside>
 
         <main class="preview-area">
-            <div class="tabs">
-                <button class="tab-btn active" onclick="showTab('preview')">Live Preview</button>
-                <button class="tab-btn" onclick="showTab('code')">Get Code</button>
-            </div>
+            <nav class="tabs">
+                <button class="tab-btn active" onclick="showTab('preview')">Live Rendering</button>
+                <button class="tab-btn" onclick="showTab('code')">Source Manifest</button>
+            </nav>
             
-            <div id="previewContainer" class="tab-content active">
-                <div id="renderSurface"></div>
-            </div>
+            <section id="previewContainer" class="tab-content active">
+                <div id="renderSurface">
+                    <p style="color: #8b949e;">Waiting for architectural prompt...</p>
+                </div>
+            </section>
 
-            <div id="codeContainer" class="tab-content">
-                <pre><code id="codeOutput"></code></pre>
-            </div>
+            <section id="codeContainer" class="tab-content">
+                <div class="code-wrapper">
+                    <pre><code id="codeOutput">// Generated logic will appear here...</code></pre>
+                </div>
+            </section>
         </main>
     </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/dictionary.js"></script>
+    <script src="js/parser.js"></script>
     <script src="engine.js"></script>
 </body>
 </html>
