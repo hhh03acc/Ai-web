@@ -1,0 +1,130 @@
+:root {
+    --bg-dark: #0f1117;
+    --sidebar-bg: #161b22;
+    --accent-blue: #3b82f6;
+    --text-main: #e6edf3;
+    --text-dim: #8b949e;
+    --border-color: #30363d;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    margin: 0;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 320px;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+h2 { font-size: 1.25rem; color: var(--accent-blue); margin: 0; }
+
+textarea {
+    background: #0d1117;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: white;
+    padding: 12px;
+    height: 150px;
+    resize: none;
+    font-size: 0.9rem;
+}
+
+textarea:focus { outline: 1px solid var(--accent-blue); }
+
+button#generateBtn {
+    background: var(--accent-blue);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s, background 0.3s;
+}
+
+button#generateBtn:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+}
+
+/* Preview Area Styling */
+.preview-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #0d1117;
+}
+
+.tabs {
+    background: var(--sidebar-bg);
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    gap: 10px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.tab-btn.active {
+    background: #21262d;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.tab-content.active { display: block; }
+
+#renderSurface {
+    background: white; /* بيئة عرض المكونات تكون بيضاء لتظهر الألوان بوضوح */
+    min-height: 400px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+}
+
+#codeOutput {
+    background: #010409;
+    padding: 20px;
+    border-radius: 8px;
+    color: #7ee787;
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre-wrap;
+    border: 1px solid var(--border-color);
+}
+
+.hint {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    text-align: center;
+    margin-top: auto;
+}
