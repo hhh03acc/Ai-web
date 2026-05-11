@@ -14,6 +14,8 @@ const LEXICON = {
         optimization_level: "High-Performance-Matrix",
         integrity_check: "sha256-8e3f9a2c1b0d7e6f"
     },
+    
+window.AI_DICT = AI_DICT; 
 
     // 1. نظام الألوان اللانهائي (Infinite Color Matrix)
     // نضع هنا مصفوفة ألوان ضخمة لتغطية كافة الطلبات الممكنة
